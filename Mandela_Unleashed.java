@@ -5,7 +5,7 @@
  * 4/18/2014
  */
 
-package mandela_unleashed;
+
 import java.util.Scanner;
 /**
  *
@@ -21,7 +21,8 @@ public class Mandela_Unleashed
     {
     //declare variables
     Scanner in = new Scanner(System.in);
-    
+    while(true)
+    System.out.println("Hello World");
     }
     
 }
