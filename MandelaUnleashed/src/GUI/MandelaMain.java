@@ -8,12 +8,10 @@ package GUI;
 import javax.swing.JFrame;
 
 public class MandelaMain{
-    private boolean running = true;
     //Runs the program
     public static void main(String[] args) {
         JFrame frame = new GameGUI();
         initialize(frame);
-        //runGame(frame);
         //System.exit(0);
     }
     
@@ -22,11 +20,5 @@ public class MandelaMain{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setTitle("Mandela Unleashed");
         f.setVisible(true);
-    }
-    
-    //Runs the game
-    static void runGame(JFrame f) {
-        
-        f.setVisible(false);
     }
 }//end class MandelaMain
