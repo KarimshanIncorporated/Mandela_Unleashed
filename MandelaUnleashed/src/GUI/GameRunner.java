@@ -2,7 +2,6 @@
 MANDELA UNLEASHED
 Johnny Hoang, Aryan Sefidi
 */
-
 package GUI;
 
 import javax.swing.JFrame;
@@ -19,8 +18,10 @@ public class GameRunner {
     }
     public void run() {
         initializeGUI(game);
+        
     }
     public void initializeGUI(GameGUI g) {
+        g.setResizable(false); 
         g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         g.setTitle("Mandela Unleashed");
         g.setVisible(true);

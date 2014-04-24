@@ -2,8 +2,8 @@
 MANDELA UNLEASHED
 Johnny Hoang, Aryan Sefidi
 */
-
 package GUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+
 public class GameGUI extends javax.swing.JFrame {
     GameRunner r = new GameRunner(this);
     /**
@@ -71,7 +72,7 @@ public class GameGUI extends javax.swing.JFrame {
         textArea1.setEditable(false);
 
         jButton4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jButton4.setText("jButton32");
+        jButton4.setText("jButton3");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);

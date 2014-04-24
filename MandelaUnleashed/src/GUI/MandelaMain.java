@@ -2,10 +2,7 @@
 MANDELA UNLEASHED
 Johnny Hoang, Aryan Sefidi
 */
-
 package GUI;
-
-import javax.swing.JFrame;
 
 public class MandelaMain{
     //Runs the program

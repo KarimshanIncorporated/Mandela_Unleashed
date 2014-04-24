@@ -2,11 +2,9 @@
 MANDELA UNLEASHED
 Johnny Hoang, Aryan Sefidi
 */
-
 package PlotLibrary;
 
-public class Story 
-{
 
-
-}
+public class ChapterThree {
+    
+}//end ChapterThree
