@@ -8,7 +8,7 @@ package GUI;
 import javax.swing.JFrame;
 
 public class MandelaMain{
-    
+    private boolean running = true;
     //Runs the program
     public static void main(String[] args) {
         JFrame frame = new GameGUI();
