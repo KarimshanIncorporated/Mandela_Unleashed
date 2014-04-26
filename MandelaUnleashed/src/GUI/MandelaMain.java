@@ -19,7 +19,8 @@ public class MandelaMain{
         GameGUI gui = new GameGUI();
         run.initializeMenu(mainM);
         mainM.getObs(run, gui);
-        AudioPlayer music = new AudioPlayer();
+        Audio mus = new Audio();
+        mus.playAudio();
     }
     
     public void initializeMenu(MainMenu m) {
