@@ -17,16 +17,33 @@ import PlotLibrary.*;
 
 public class GameGUI extends javax.swing.JFrame {
     ChapterOne one = new ChapterOne();
-    
+    ChapterTwo two = new ChapterTwo();
+    ChapterThree three = new ChapterThree();
+    private int chapter = 1;
+    private int tLine = 0;
+    private int choice = 0;
     //Creates new form GameGUI
     public GameGUI() {
         initComponents();
     }
 
     public void type() {
-        textArea1.append(one.test());
+        if(chapter == 1) {
+            textArea1.append(one.print(tLine));
+            tLine++;
+            if(tLine == 3) {
+                chapter++;
+            }
+        }
+        if(chapter == 2) {
+            
+        }
+        if(chapter == 3) {
+            
+        }
+        
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,9 +67,19 @@ public class GameGUI extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         jButton4.setText("jButton3");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         textArea1.setEditable(false);
 
@@ -60,6 +87,11 @@ public class GameGUI extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         jButton3.setText("jButton2");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("jLabel1");
@@ -114,6 +146,21 @@ public class GameGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        choice = 1;
+        type();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        choice = 2;
+        type();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        choice = 3;
+        type();
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
