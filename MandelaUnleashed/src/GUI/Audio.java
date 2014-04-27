@@ -22,7 +22,6 @@ public class Audio {
             String path = Audio.class.getProtectionDomain().getCodeSource().getLocation().getPath();
             String decodedPath = "";
             String file = (decodedPath += "/GUI/Sounds/sample.wav");
-            Clip clip;
             try {
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/GUI/Sounds/unleashed.wav"));
                 clip = AudioSystem.getClip();
@@ -31,6 +30,6 @@ public class Audio {
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {}
         }
         public void STOP() {
-                clip.close();
+                clip.stop();
         }
 }//end class Audio
