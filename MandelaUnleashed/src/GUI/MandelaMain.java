@@ -8,7 +8,8 @@ import PlotLibrary.*;
 import javax.swing.JFrame;
 
 public class MandelaMain{
-    MainMenu mainM = new MainMenu();
+    
+    boolean playMainTheme = true;
     
     public MandelaMain() {
         
@@ -17,10 +18,10 @@ public class MandelaMain{
         MandelaMain run = new MandelaMain();
         MainMenu mainM = new MainMenu();
         GameGUI gui = new GameGUI();
-        run.initializeMenu(mainM);
-        mainM.getObs(run, gui);
         Audio mus = new Audio();
+        run.initializeMenu(mainM);
         mus.playAudio();
+        mainM.getObs(run, gui, mus);
     }
     
     public void initializeMenu(MainMenu m) {
@@ -37,6 +38,11 @@ public class MandelaMain{
         g.setTitle("Mandela Unleashed");
         g.setVisible(true);
     }
+    
+    public void stopMusic(Audio mus) {
+        mus.STOP();
+    }
+    
     //Closes the game
         public static void stopGame() {
        System.exit(0);

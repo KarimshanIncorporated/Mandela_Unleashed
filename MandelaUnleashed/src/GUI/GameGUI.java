@@ -27,13 +27,10 @@ public class GameGUI extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void type() {
+    public void typeNext() {
+        textArea1.setText("");
         if(chapter == 1) {
-            textArea1.append(one.print(tLine));
-            tLine++;
-            if(tLine == 3) {
-                chapter++;
-            }
+            
         }
         if(chapter == 2) {
             
@@ -43,7 +40,24 @@ public class GameGUI extends javax.swing.JFrame {
         }
         
     }
-
+    public void typeChoice() {
+        textArea1.setText("");
+        if(one.isChoice(tLine)) {   
+            if(chapter == 1) {
+                
+            }
+            if(chapter == 2) {
+                
+            }
+            if(chapter == 3) {
+                
+            }
+        }
+        else {
+            textArea1.setText("");
+            textArea1.append(one.print(tLine));
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,31 +67,30 @@ public class GameGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Choice3 = new javax.swing.JButton();
+        Choice1 = new javax.swing.JButton();
         textArea1 = new java.awt.TextArea();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        Choice2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        Next = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jButton4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jButton4.setText("jButton3");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        Choice3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        Choice3.setText("Choice 3");
+        Choice3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                Choice3MouseClicked(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jButton1.setText("jButton1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Choice1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        Choice1.setText("Choice 1");
+        Choice1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                Choice1MouseClicked(evt);
             }
         });
 
@@ -85,20 +98,23 @@ public class GameGUI extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/NelsonMandela.png"))); // NOI18N
 
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jButton3.setText("jButton2");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        Choice2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        Choice2.setText("Choice 2");
+        Choice2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                Choice2MouseClicked(evt);
             }
         });
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("jLabel1");
 
-        jButton2.setText("Next");
-
-        jButton5.setText("Previous");
+        Next.setText("Next");
+        Next.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NextMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,18 +127,15 @@ public class GameGUI extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(Choice1)
                         .addGap(75, 75, 75)
-                        .addComponent(jButton3)
+                        .addComponent(Choice2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4))
+                        .addComponent(Choice3))
                     .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Next, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
@@ -136,31 +149,34 @@ public class GameGUI extends javax.swing.JFrame {
                     .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2)
-                    .addComponent(jButton5))
+                    .addComponent(Choice1)
+                    .addComponent(Choice2)
+                    .addComponent(Choice3)
+                    .addComponent(Next))
                 .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void Choice1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Choice1MouseClicked
         choice = 1;
-        type();
-    }//GEN-LAST:event_jButton1MouseClicked
+        typeChoice();
+    }//GEN-LAST:event_Choice1MouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void Choice2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Choice2MouseClicked
         choice = 2;
-        type();
-    }//GEN-LAST:event_jButton3MouseClicked
+        typeChoice();
+    }//GEN-LAST:event_Choice2MouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void Choice3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Choice3MouseClicked
         choice = 3;
-        type();
-    }//GEN-LAST:event_jButton4MouseClicked
+        typeChoice();
+    }//GEN-LAST:event_Choice3MouseClicked
+
+    private void NextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextMouseClicked
+        typeNext();
+    }//GEN-LAST:event_NextMouseClicked
 
     /**
      * @param args the command line arguments
@@ -198,11 +214,10 @@ public class GameGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton Choice1;
+    private javax.swing.JButton Choice2;
+    private javax.swing.JButton Choice3;
+    private javax.swing.JButton Next;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private java.awt.TextArea textArea1;

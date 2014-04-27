@@ -8,30 +8,29 @@ import java.io.*;
 import java.net.URLDecoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import static javax.sound.sampled.Clip.LOOP_CONTINUOUSLY;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
+
 public class Audio {
-        public void playAudio() {
+        private Clip clip;
+        public void playAudio(){
             String path = Audio.class.getProtectionDomain().getCodeSource().getLocation().getPath();
             String decodedPath = "";
-            AudioPlayer aPlayer = AudioPlayer.player;
-            ContinuousAudioDataStream loop = null;
-            try {
-                decodedPath = URLDecoder.decode(path, "UTF-8");
-            } catch (UnsupportedEncodingException ex) {}
             String file = (decodedPath += "/GUI/Sounds/sample.wav");
-            InputStream in = null;
+            Clip clip;
             try {
-                in = new FileInputStream(file);
-            } catch (FileNotFoundException ex) {}
-            AudioStream audioStream = null;
-            try {
-                audioStream = new AudioStream(in);
-                AudioData MD = audioStream.getData();
-                loop = new ContinuousAudioDataStream(MD);
-            } catch (IOException ex) {}
-            aPlayer.start(audioStream);
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/GUI/Sounds/unleashed.wav"));
+                clip = AudioSystem.getClip();
+                clip.open(inputStream);
+                clip.loop(LOOP_CONTINUOUSLY);
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {}
+        }
+        public void STOP() {
+                clip.close();
         }
 }//end class Audio

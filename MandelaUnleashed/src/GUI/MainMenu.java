@@ -7,6 +7,7 @@ package GUI;
 public class MainMenu extends javax.swing.JFrame {
     GameGUI gooey;
     MandelaMain manMain;
+    Audio mainSong;
     
     /**
      * Creates new form MainMenu
@@ -15,9 +16,10 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void getObs(MandelaMain m, GameGUI g){
+    public void getObs(MandelaMain m, GameGUI g, Audio mS){
         gooey = g;
         manMain = m;
+        mainSong = mS;
     }
 
     /**
@@ -101,6 +103,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         setVisible(false);
         manMain.initializeGUI(gooey);
+        manMain.stopMusic(mainSong);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
