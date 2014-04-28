@@ -6,54 +6,13 @@ package PlotLibrary;
 
 public class ChapterOne {
     String[] ch1;
-    String[] path2;
-    String[] path3;
-    int currentPath;
     
     public ChapterOne(){
-        ch1 = new String[4];
-        path2 = new String[2];
-        currentPath = 1;
-        ch1[0] = "Chapter One\n\n";
-        ch1[1] = "Some story\n";
-        ch1[2] = "Choice 1: Right \n Choice 2: Wrong \n Choice 3: Wrong\n";
-        ch1[3] = "Right choice";
-        
-        path2[0] = "Bad choice\n";
-        path2[1] = "Game over 1";
-        
+        ch1 = new String[2];
+        ch1[0] = "Prologue: The year was 1918. South Africa has been shattered and disunited for many years, and many more to come. In a small village of Mvezo, along the banks of the Mbashe River, you would be born, Rolihlahla Mandela, more commonly known as Nelson Mandela, Belonging to the Xhosa clan, your name, Rolihlahla, meaning troublemaker, was more known as \"Madiba,\" or your clan name, for your early years. Being born into a Methodist family, as you started school at the age of seven, the name Nelson was given to you by your teacher as you were baptised. Two years later, your beloved father has passed away. In order to cope with his death, you would form a strong bond with his faith and mother, going to sunday service every week and attending a Methodist mission school. Years pass, as you enter your thirties. Now, you will begin your law studies at the University of Witwatersrand at Johannesburg. This is where your dream and work shall be born. The year is 1944, and change is in the making.";
+        ch1[1] = "";
     }
-    
     public String print(int num) {
-        return "";
-    }
-    public void setPath(int num ,int path) {
-        if(num == 2) {
-            
-        }
-        
-    }
-    public boolean isChoice(int num) {
-        if(num == 2){
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean isWrongChoice() {
-        if(currentPath == 2 || currentPath == 3) {
-            return true;
-        }
-        return false;
-    }
-    
-    public String[] getCurrentArray() {
-        if(currentPath == 2) {
-            return path2;
-        }
-        if(currentPath == 3) {
-            return path3;
-        }
-        return ch1;
+        return ch1[num];
     }
 }//end class ChapterOne

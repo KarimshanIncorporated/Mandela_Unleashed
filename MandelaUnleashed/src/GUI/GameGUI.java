@@ -28,9 +28,9 @@ public class GameGUI extends javax.swing.JFrame {
     }
 
     public void typeNext() {
-        textArea1.setText("");
+        jTextArea1.setText("");
         if(chapter == 1) {
-            
+            jTextArea1.setText(one.print(tLine));
         }
         if(chapter == 2) {
             
@@ -38,11 +38,9 @@ public class GameGUI extends javax.swing.JFrame {
         if(chapter == 3) {
             
         }
-        
     }
     public void typeChoice() {
-        textArea1.setText("");
-        if(one.isChoice(tLine)) {   
+        jTextArea1.setText("");  
             if(chapter == 1) {
                 
             }
@@ -53,11 +51,6 @@ public class GameGUI extends javax.swing.JFrame {
                 
             }
         }
-        else {
-            textArea1.setText("");
-            textArea1.append(one.print(tLine));
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,11 +62,12 @@ public class GameGUI extends javax.swing.JFrame {
 
         Choice3 = new javax.swing.JButton();
         Choice1 = new javax.swing.JButton();
-        textArea1 = new java.awt.TextArea();
         jLabel3 = new javax.swing.JLabel();
         Choice2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Next = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -93,8 +87,6 @@ public class GameGUI extends javax.swing.JFrame {
                 Choice1MouseClicked(evt);
             }
         });
-
-        textArea1.setEditable(false);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/NelsonMandela.png"))); // NOI18N
 
@@ -116,6 +108,14 @@ public class GameGUI extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setEditable(false);
+        jTextArea1.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,15 +125,15 @@ public class GameGUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Choice1)
                         .addGap(75, 75, 75)
                         .addComponent(Choice2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(70, 70, 70)
                         .addComponent(Choice3))
-                    .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Next, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -145,8 +145,8 @@ public class GameGUI extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Choice1)
@@ -221,6 +221,7 @@ public class GameGUI extends javax.swing.JFrame {
     private javax.swing.JButton Next;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private java.awt.TextArea textArea1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }//end class GameGUI
