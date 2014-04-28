@@ -15,11 +15,11 @@ public class MandelaMain{
     public MandelaMain() {
         
     }
+    public static Audio mus = new Audio();
     public static void main(String[] args) {
         MandelaMain run = new MandelaMain();
         MainMenu mainM = new MainMenu();
         GameGUI gui = new GameGUI();
-        Audio mus = new Audio();
         run.initializeMenu(mainM);
         mus.playAudio();
         mainM.getObs(run, gui, mus);
@@ -43,9 +43,13 @@ public class MandelaMain{
         g.setTitle("Mandela Unleashed");
         g.setVisible(true);
     }
-    
-    
-    
+    public void initializeLOSER(LOSER L) {
+        L.setSize(800,600); 
+        L.setResizable(false); 
+        L.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        L.setTitle("Mandela Unleashed");
+        L.setVisible(true);
+    }
     //Closes the game
         public static void stopGame() {
        System.exit(0);

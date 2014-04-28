@@ -19,18 +19,38 @@ public class GameGUI extends javax.swing.JFrame {
     ChapterOne one = new ChapterOne();
     ChapterTwo two = new ChapterTwo();
     ChapterThree three = new ChapterThree();
+    LOSER lose = new LOSER();
+    MandelaMain m = new MandelaMain();
     private int chapter = 1;
     private int tLine = 0;
     private int choice = 0;
     //Creates new form GameGUI
     public GameGUI() {
         initComponents();
+        jTextArea1.setText(one.print(tLine));
+        tLine++;
     }
 
     public void typeNext() {
         jTextArea1.setText("");
+        if(tLine == 50) {
+            setVisible(false);
+            m.initializeLOSER(lose);
+        }
         if(chapter == 1) {
-            jTextArea1.setText(one.print(tLine));
+            if(one.isChoice(tLine)){
+                jTextArea1.setText("You must make a choice!");
+                jTextArea1.setText(one.print(tLine));
+            }
+            if(one.isBadEnd(tLine)){
+                jTextArea1.setText(one.print(tLine));
+                tLine = 50;
+            }
+            if(one.isEnd(tLine)) {
+                jTextArea1.setText(one.print(tLine));
+                chapter++;
+                tLine = 0;
+            }
         }
         if(chapter == 2) {
             
@@ -125,19 +145,18 @@ public class GameGUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Choice1)
                         .addGap(75, 75, 75)
                         .addComponent(Choice2)
                         .addGap(70, 70, 70)
-                        .addComponent(Choice3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
-                        .addComponent(Next, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Choice3))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Next, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
