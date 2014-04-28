@@ -39,36 +39,240 @@ public class GameGUI extends javax.swing.JFrame {
         }
         if(chapter == 1) {
             if(one.isChoice(tLine)){
-                jTextArea1.setText("You must make a choice!");
-                jTextArea1.setText(one.print(tLine));
+                jTextArea1.setText("You must make a choice!\n");
+                jTextArea1.append(one.print(tLine));
             }
-            if(one.isBadEnd(tLine)){
-                jTextArea1.setText(one.print(tLine));
+            else if(one.isBadEnd(tLine)){
                 tLine = 50;
+                jTextArea1.setText(one.print(tLine));
             }
-            if(one.isEnd(tLine)) {
+            else if(one.isEnd(tLine)) {
                 jTextArea1.setText(one.print(tLine));
                 chapter++;
                 tLine = 0;
             }
+            else{
+                tLine++;
+                jTextArea1.setText(one.print(tLine));
+            }
         }
         if(chapter == 2) {
-            
+            if(two.isChoice(tLine)){
+                jTextArea1.setText("You must make a choice!\n");
+                jTextArea1.append(two.print(tLine));
+            }
+            else if(two.isBadEnd(tLine)){
+                jTextArea1.setText(two.print(tLine));
+                tLine = 50;
+            }
+            else if(two.isEnd(tLine)) {
+                jTextArea1.setText(two.print(tLine));
+                chapter++;
+                tLine = 0;
+            }
+            else{
+                tLine++;
+                jTextArea1.setText(two.print(tLine));
+            }
         }
         if(chapter == 3) {
-            
+            if(three.isChoice(tLine)){
+                jTextArea1.setText("You must make a choice!\n");
+                jTextArea1.append(three.print(tLine));
+            }
+            else if(three.isBadEnd(tLine)){
+                jTextArea1.setText(three.print(tLine));
+                tLine = 50;
+            }
+            else if(three.isEnd(tLine)) {
+                jTextArea1.setText(three.print(tLine));
+                System.exit(0);
+            }
+            else{
+                tLine++;
+                jTextArea1.setText(three.print(tLine));
+            }
         }
     }
     public void typeChoice() {
-        jTextArea1.setText("");  
+        jTextArea1.setText("");
+        
             if(chapter == 1) {
-                
+                if(one.isChoice(tLine)) {
+                    if(tLine == 3){
+                        if(choice == 1) {
+                            tLine = 4;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 26;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.append(one.print(tLine));
+                        }
+                    }
+                    else if(tLine == 6) {
+                        if(choice == 1) {
+                            tLine = 27;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 7;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                    }
+                    else if(tLine == 9) {
+                        if(choice == 1) {
+                            tLine = 28;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 10;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                    }
+                    else if(tLine == 14){
+                        if(choice == 1) {
+                            tLine = 29;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 33;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 3) {
+                            tLine = 15;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                    }
+                    else if(tLine == 21){
+                        if(choice == 1) {
+                            tLine = 22;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 34;
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.setText(one.print(tLine));
+                        }
+                    }
+                }
+                else {
+                    jTextArea1.setText("You cannot make a choice here. Press next.\n");
+                    jTextArea1.append(one.print(tLine));
+                }
             }
             if(chapter == 2) {
-                
+                if(two.isChoice(tLine)) {
+                    if(tLine == 3){
+                        if(choice == 1) {
+                            tLine = 4;
+                            jTextArea1.append(two.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 17;
+                            jTextArea1.append(two.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.append(two.print(tLine));
+                        }
+                    }
+                    else if(tLine == 9) {
+                        if(choice == 1) {
+                            tLine = 10;
+                            jTextArea1.append(two.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 18;
+                            jTextArea1.append(two.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.append(two.print(tLine));
+                        }
+                    }
+                    else if(tLine == 14) {
+                        if(choice == 1) {
+                            tLine = 20;
+                            jTextArea1.append(two.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 15;
+                            jTextArea1.append(two.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.append(two.print(tLine));
+                        }
+                    }
+                }
+                else {
+                    jTextArea1.setText("You cannot make a choice here. Press next. \n");
+                    jTextArea1.append(two.print(tLine));
+                }
             }
             if(chapter == 3) {
-                
+                if(one.isChoice(tLine)) {
+                    if(tLine == 2){
+                        if(choice == 1) {
+                            tLine = 17;
+                            jTextArea1.append(three.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 3;
+                            jTextArea1.append(three.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.append(three.print(tLine));
+                        }
+                    }
+                    else if(tLine == 6) {
+                        if(choice == 1) {
+                            tLine =  7;
+                            jTextArea1.append(three.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 18;
+                            jTextArea1.append(three.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.append(three.print(tLine));
+                        }
+                    }
+                    else if(tLine == 12) {
+                        if(choice == 1) {
+                            tLine = 13;
+                            jTextArea1.append(three.print(tLine));
+                        }
+                        if(choice == 2) {
+                            tLine = 19;
+                            jTextArea1.append(three.print(tLine));
+                        }
+                        if(choice == 3) {
+                            jTextArea1.setText("You cannot make this decision. Pick again.\n");
+                            jTextArea1.append(three.print(tLine));
+                        }
+                    }
+                }
+                else {
+                    jTextArea1.setText("You cannot make a choice here. Press next.\n");
+                    jTextArea1.append(three.print(tLine));
+                }
             }
         }
     /**
