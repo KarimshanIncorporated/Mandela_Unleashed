@@ -9,8 +9,9 @@ import javax.swing.JFrame;
 
 public class MandelaMain{
     
-    boolean playMainTheme = true;
     
+    boolean playMainTheme = true;
+
     public MandelaMain() {
         
     }
@@ -31,6 +32,10 @@ public class MandelaMain{
         m.setTitle("Mandela Unleashed");
         m.setVisible(true);
     }
+    
+    public void stopMusic(Audio mus) {
+        mus.STOP();
+    }
     public void initializeGUI(GameGUI g) {
         g.setSize(800,600); 
         g.setResizable(false); 
@@ -39,9 +44,7 @@ public class MandelaMain{
         g.setVisible(true);
     }
     
-    public void stopMusic(Audio mus) {
-        mus.STOP();
-    }
+    
     
     //Closes the game
         public static void stopGame() {

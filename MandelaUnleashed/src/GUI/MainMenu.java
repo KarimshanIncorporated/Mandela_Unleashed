@@ -102,6 +102,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         setVisible(false);
+        //playMainTheme = false;
         manMain.initializeGUI(gooey);
         manMain.stopMusic(mainSong);
     }//GEN-LAST:event_jButton2MouseClicked

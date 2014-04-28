@@ -13,7 +13,6 @@ public class ChapterOne {
     public ChapterOne(){
         ch1 = new String[4];
         path2 = new String[2];
-        path3 = new String [2];
         currentPath = 1;
         ch1[0] = "Chapter One\n\n";
         ch1[1] = "Some story\n";
@@ -22,8 +21,7 @@ public class ChapterOne {
         
         path2[0] = "Bad choice\n";
         path2[1] = "Game over 1";
-        path3[0] = "Bad choice\n";
-        path3[1] = "Game over 2";
+        
     }
     
     public String print(int num) {
