@@ -25,16 +25,17 @@ public class Audio {
     ChapterTwo two = new ChapterTwo();
     ChapterThree three = new ChapterThree();
     GameGUI pls = new GameGUI();
-    
-   
-    
-        private Clip clip;
-        public void playAudio(){
+    String name = "";
+    private Clip clip;
+    public void setName(String name1) {
+        name = name1;
+    }
+    public void playAudio(){
             String path = Audio.class.getProtectionDomain().getCodeSource().getLocation().getPath();
             String decodedPath = "";
-            String file = (decodedPath += "/GUI/Sounds/sample.wav");
+            String file = (decodedPath += "/GUI/Sounds/" + name);
             try {
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResource("/GUI/Sounds/unleashed.wav"));
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResource("/GUI/Sounds/" + name));
                 InputStream is = inputStream;
                 clip = AudioSystem.getClip();
                 clip.open(inputStream);

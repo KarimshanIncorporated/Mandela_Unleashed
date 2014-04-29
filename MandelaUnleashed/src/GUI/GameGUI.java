@@ -21,37 +21,34 @@ public class GameGUI extends javax.swing.JFrame {
     ChapterThree three = new ChapterThree();
     LOSER lose = new LOSER();
     MandelaMain m = new MandelaMain();
+    public static Audio mus = new Audio();
     public int chapter = 1;
     private int tLine = 0;
     private int choice = 0;
-    
-    public int pls(){
-    return chapter;
-}
+    private int ender = 0;
 
 //Creates new form GameGUI
     public GameGUI() {
         initComponents();
         jTextArea1.setText(one.print(tLine));
-        tLine++;
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/prologuepic.jpg")));
-    
+        mus.setName("Chapter_1.mp3");
+        mus.playAudio();
     }
 
     public void typeNext() {
         jTextArea1.setText("");
-        if(tLine == 50) {
-            setVisible(false);
-            m.initializeLOSER(lose);
-        }
         if(chapter == 1) {
             if(one.isChoice(tLine)){
                 jTextArea1.setText("You must make a choice!\n");
                 jTextArea1.append(one.print(tLine));
             }
             else if(one.isBadEnd(tLine)){
-                tLine = 50;
-                jTextArea1.setText(one.print(tLine));
+                mus.STOP();
+                mus.setName("loss_screen.mp3");
+                mus.playAudio();
+                setVisible(false);
+                m.initializeLOSER(lose);
             }
             else if(one.isEnd(tLine)) {
                 jTextArea1.setText(one.print(tLine));
@@ -64,43 +61,82 @@ public class GameGUI extends javax.swing.JFrame {
                 if(tLine == 17) {
                     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/a1.jpg")));
                 }
+                if(tLine == 25) {
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/611-6.jpg")));
+                }
             }
         }
-        if(chapter == 2) {
+        else if(chapter == 2) {
             if(two.isChoice(tLine)){
                 jTextArea1.setText("You must make a choice!\n");
                 jTextArea1.append(two.print(tLine));
             }
             else if(two.isBadEnd(tLine)){
-                jTextArea1.setText(two.print(tLine));
-                tLine = 50;
+                mus.STOP();
+                mus.setName("loss_screen.mp3");
+                mus.playAudio();
+                setVisible(false);
+                m.initializeLOSER(lose);
             }
             else if(two.isEnd(tLine)) {
                 jTextArea1.setText(two.print(tLine));
                 chapter++;
                 tLine = 0;
             }
+            else if(tLine == 0) {
+                    mus.STOP();
+                    mus.setName("Chapter_2.mp3");
+                    mus.playAudio();
+                    jTextArea1.setText(two.print(tLine));
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/farm_raid.jpg")));
+                    tLine++;
+                }
             else{
                 tLine++;
                 jTextArea1.setText(two.print(tLine));
+                if(tLine == 5) {
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/prisons_black_inmates.jpg")));
+                }
+                if(tLine == 14) {
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/apn22976-640.jpg")));
+                }
             }
         }
-        if(chapter == 3) {
+        else if(chapter == 3) {
             if(three.isChoice(tLine)){
                 jTextArea1.setText("You must make a choice!\n");
                 jTextArea1.append(three.print(tLine));
             }
             else if(three.isBadEnd(tLine)){
-                jTextArea1.setText(three.print(tLine));
-                tLine = 50;
+                mus.STOP();
+                mus.setName("loss_screen.mp3");
+                mus.playAudio();
+                setVisible(false);
+                m.initializeLOSER(lose);
             }
             else if(three.isEnd(tLine)) {
-                jTextArea1.setText(three.print(tLine));
                 System.exit(0);
             }
+            else if(tLine == 0) {
+                    mus.STOP();
+                    mus.setName("Chapter_3.mp3");
+                    mus.playAudio();
+                     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/pres_mand.jpg")));
+                     jTextArea1.setText(three.print(tLine));
+                     tLine++;
+                }
             else{
                 tLine++;
                 jTextArea1.setText(three.print(tLine));
+                if(tLine == 8) {
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/w3-mandela-a-20131210.jpg")));
+                }
+                if(tLine == 12) {
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/springboks-vs-allblacks-2-springbokrugby.jpg")));
+                }
+                if(tLine == 16) {
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/Beautiful Table Bay in Cape Town, South Africa.jpg")));
+                }
             }
         }
     }
@@ -135,7 +171,7 @@ public class GameGUI extends javax.swing.JFrame {
                         }
                         if(choice == 3) {
                             jTextArea1.setText("You cannot make this decision. Pick again.\n");
-                            jTextArea1.setText(one.print(tLine));
+                            jTextArea1.append(one.print(tLine));
                         }
                     }
                     else if(tLine == 9) {
@@ -149,7 +185,7 @@ public class GameGUI extends javax.swing.JFrame {
                         }
                         if(choice == 3) {
                             jTextArea1.setText("You cannot make this decision. Pick again.\n");
-                            jTextArea1.setText(one.print(tLine));
+                            jTextArea1.append(one.print(tLine));
                         }
                     }
                     else if(tLine == 14){
@@ -177,7 +213,7 @@ public class GameGUI extends javax.swing.JFrame {
                         }
                         if(choice == 3) {
                             jTextArea1.setText("You cannot make this decision. Pick again.\n");
-                            jTextArea1.setText(one.print(tLine));
+                            jTextArea1.append(one.print(tLine));
                         }
                     }
                 }
@@ -236,7 +272,7 @@ public class GameGUI extends javax.swing.JFrame {
                 }
             }
             if(chapter == 3) {
-                if(one.isChoice(tLine)) {
+                if(three.isChoice(tLine)) {
                     if(tLine == 2){
                         if(choice == 1) {
                             tLine = 17;
