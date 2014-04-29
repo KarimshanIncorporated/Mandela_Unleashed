@@ -4,6 +4,10 @@ Johnny Hoang, Aryan Sefidi
 */
 package GUI;
 
+import PlotLibrary.ChapterOne;
+import PlotLibrary.ChapterThree;
+import PlotLibrary.ChapterTwo;
+import GUI.GameGUI;
 import java.io.*;
 import java.net.URLDecoder;
 import java.util.logging.Level;
@@ -17,13 +21,20 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import sun.audio.AudioStream;
 
 public class Audio {
+    ChapterOne one = new ChapterOne();
+    ChapterTwo two = new ChapterTwo();
+    ChapterThree three = new ChapterThree();
+    GameGUI pls = new GameGUI();
+    
+   
+    
         private Clip clip;
         public void playAudio(){
             String path = Audio.class.getProtectionDomain().getCodeSource().getLocation().getPath();
             String decodedPath = "";
             String file = (decodedPath += "/GUI/Sounds/sample.wav");
             try {
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/GUI/Sounds/unleashed.wav"));
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResource("/GUI/Sounds/unleashed.wav"));
                 InputStream is = inputStream;
                 clip = AudioSystem.getClip();
                 clip.open(inputStream);
@@ -33,4 +44,6 @@ public class Audio {
         public void STOP() {
                 clip.stop();
         }
+       
+
 }//end class Audio

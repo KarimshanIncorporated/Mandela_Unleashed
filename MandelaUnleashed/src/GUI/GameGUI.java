@@ -21,15 +21,21 @@ public class GameGUI extends javax.swing.JFrame {
     ChapterThree three = new ChapterThree();
     LOSER lose = new LOSER();
     MandelaMain m = new MandelaMain();
-    private int chapter = 1;
+    public int chapter = 1;
     private int tLine = 0;
     private int choice = 0;
-    //Creates new form GameGUI
+    
+    public int pls(){
+    return chapter;
+}
+
+//Creates new form GameGUI
     public GameGUI() {
         initComponents();
         jTextArea1.setText(one.print(tLine));
         tLine++;
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/prologuepic.jpg")));
+    
     }
 
     public void typeNext() {
@@ -292,6 +298,7 @@ public class GameGUI extends javax.swing.JFrame {
         Choice3 = new javax.swing.JButton();
         Choice1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        if(chapter == 1)
         Choice2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Next = new javax.swing.JButton();
@@ -317,6 +324,11 @@ public class GameGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/guerillaMandela.png")));
+        if(chapter == 2)
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/jailMandela.png"))); // NOI18N
+
+        if(chapter == 3)
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/NelsonMandela.png"))); // NOI18N
 
         Choice2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
@@ -353,19 +365,21 @@ public class GameGUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Choice1)
                         .addGap(75, 75, 75)
                         .addComponent(Choice2)
                         .addGap(70, 70, 70)
-                        .addComponent(Choice3))
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Next, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                        .addComponent(Choice3)
+                        .addGap(18, 233, Short.MAX_VALUE)
+                        .addComponent(Next, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,7 +389,7 @@ public class GameGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Choice1)
                     .addComponent(Choice2)

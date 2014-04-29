@@ -35,8 +35,8 @@ public class ChapterTwo {
         ch2[13] ="Many nations in Africa and across the world stop investing in South Africa. The banks stop lending and aiding their financial crisis and put more pressure on the government for the sake of your release. In 1985,  the government was too pressured and in a wreck so they offered you a deal. You may be released, on the condition that you vow for non violence. ";
         //choice
         ch2[14] ="1) Agree\n" +
-"\n" +
-"2) Disagree ";
+        "\n" +
+        "2) Disagree ";
         ch2[15] ="“What freedom am I being offered while the organization of the people remains banned? Only free men can negotiate. A prisoner cannot enter into contracts,” ";
         ch2[16] ="After declining their offer, the government transferred you to Victor Vestor Prison, your new home. You spend 5 years here, while outside the prison, the people are still wreaking havoc in South Africa and the government is being pressure and scolded."
                 + " In 1990, the government releases you and the people rejoice. ";
