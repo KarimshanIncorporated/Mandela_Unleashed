@@ -24,6 +24,7 @@ public class Audio {
             String file = (decodedPath += "/GUI/Sounds/sample.wav");
             try {
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/GUI/Sounds/unleashed.wav"));
+                InputStream is = inputStream;
                 clip = AudioSystem.getClip();
                 clip.open(inputStream);
                 clip.loop(LOOP_CONTINUOUSLY);

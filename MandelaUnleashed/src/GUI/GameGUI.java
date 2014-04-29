@@ -29,6 +29,7 @@ public class GameGUI extends javax.swing.JFrame {
         initComponents();
         jTextArea1.setText(one.print(tLine));
         tLine++;
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/prologuepic.jpg")));
     }
 
     public void typeNext() {
@@ -54,6 +55,9 @@ public class GameGUI extends javax.swing.JFrame {
             else{
                 tLine++;
                 jTextArea1.setText(one.print(tLine));
+                if(tLine == 17) {
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/a1.jpg")));
+                }
             }
         }
         if(chapter == 2) {
@@ -103,6 +107,7 @@ public class GameGUI extends javax.swing.JFrame {
                         if(choice == 1) {
                             tLine = 4;
                             jTextArea1.setText(one.print(tLine));
+                            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/firstchoicepic.jpg")));
                         }
                         if(choice == 2) {
                             tLine = 26;
@@ -323,7 +328,6 @@ public class GameGUI extends javax.swing.JFrame {
         });
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("jLabel1");
 
         Next.setText("Next");
         Next.addMouseListener(new java.awt.event.MouseAdapter() {
