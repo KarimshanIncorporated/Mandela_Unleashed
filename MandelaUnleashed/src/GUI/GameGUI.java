@@ -32,19 +32,20 @@ public class GameGUI extends javax.swing.JFrame {
         initComponents();
         jTextArea1.setText(one.print(tLine));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Images/prologuepic.jpg")));
-        mus.setName("Chapter_1.mp3");
         mus.playAudio();
     }
-
     public void typeNext() {
         jTextArea1.setText("");
         if(chapter == 1) {
+            if(tLine == 0){
+                mus.setName("Chapter_1.mp3");
+                mus.playAudio();
+            }
             if(one.isChoice(tLine)){
                 jTextArea1.setText("You must make a choice!\n");
                 jTextArea1.append(one.print(tLine));
             }
             else if(one.isBadEnd(tLine)){
-                mus.STOP();
                 mus.setName("loss_screen.mp3");
                 mus.playAudio();
                 setVisible(false);
@@ -84,6 +85,7 @@ public class GameGUI extends javax.swing.JFrame {
                 tLine = 0;
             }
             else if(tLine == 0) {
+                    mus.playAudio();
                     mus.STOP();
                     mus.setName("Chapter_2.mp3");
                     mus.playAudio();

@@ -21,6 +21,7 @@ public class MandelaMain{
         MainMenu mainM = new MainMenu();
         GameGUI gui = new GameGUI();
         run.initializeMenu(mainM);
+        mus.setName("unleashed.wav");
         mus.playAudio();
         mainM.getObs(run, gui, mus);
     }

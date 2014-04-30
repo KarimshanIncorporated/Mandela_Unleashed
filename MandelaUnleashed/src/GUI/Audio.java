@@ -24,11 +24,14 @@ public class Audio {
     ChapterOne one = new ChapterOne();
     ChapterTwo two = new ChapterTwo();
     ChapterThree three = new ChapterThree();
-    GameGUI pls = new GameGUI();
-    String name = "";
+    static String name = "";
+    static int storyPlace = 0;
     private Clip clip;
     public void setName(String name1) {
         name = name1;
+    }
+    public void setstoryPlace(int num) {
+        storyPlace = num;
     }
     public void playAudio(){
             String path = Audio.class.getProtectionDomain().getCodeSource().getLocation().getPath();
